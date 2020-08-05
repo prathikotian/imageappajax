@@ -1,15 +1,26 @@
-var button = document.getElementById("btn");
-console.log('bb ' + button);
-var randomImage = document.querySelector('#randomPic');
-console.log('image == ' + randomImage)
+const dogApi = 'https://dog.ceo/api/breeds/image/random';
+let button = document.getElementById("btn");
+let randomImage = document.querySelector('#randomPic');
 
-button.addEventListener("click", function(){
-	var xhr = new XMLHttpRequest();
-	xhr.open('GET', 'https://dog.ceo/api/breeds/image/random');
-	xhr.onreadystatechange = function() {
+window.onload = (event) => {
+	console.log('page is fully loaded');
+	let loadxhr = new XMLHttpRequest();
+	loadxhr.open('GET', dogApi);
+	loadxhr.onreadystatechange = () => {
+		if (loadxhr.readyState === 4 && loadxhr.status === 200) {
+			let response = JSON.parse(loadxhr.responseText);
+			randomImage.src = response.message;
+		}
+	}
+	loadxhr.send()
+  };
+
+button.addEventListener("click", () => {
+	let xhr = new XMLHttpRequest();
+	xhr.open('GET', dogApi);
+	xhr.onreadystatechange = () => {
 		if(xhr.readyState === 4 && xhr.status === 200) {
 			var parsedResponse = JSON.parse(xhr.responseText);
-			console.log(parsedResponse);
 			randomImage.src = parsedResponse.message; 
 		}
 	}
