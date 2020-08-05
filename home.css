@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+* {
+	box-sizing: border-box;
+	font-family: 'Special Elite', sans-serif;
+}
+
+body {
+	margin: 0;
+	background: linear-gradient(to right, #ee9ca7, #ffdde1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container,
+.left {
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+}
+
+.container {
+	text-align: center;
+	height: 100vh;
+	padding: 0 5vw;
+}
+
+#randomPic,
+.attribute svg {
+	max-width: 100%;
+}
+
+#randomPic {
+	border-radius: 14px;
+	box-shadow: 7px 2px 30px 20px gainsboro;
+}
+
+h1 {
+	padding: 0 2rem;
+	margin-bottom: 3rem;
+	line-height: 80px;
+	letter-spacing: 2px;
+	font-size: 5vmax;
+}
+
+.left {
+	flex-direction: column;
+}
+
+.left button {
+	width: 7.5rem;
+	height: 2.5rem;
+    padding: .5rem;
+    border: solid #480710;
+    border-radius: 50px;
+    box-shadow: 5px 5px 50px 20px gold;
+	outline: none;
+	transition: all 500ms ease-in-out 200ms;
+}
+
+.left button:hover {
+	background: #480710;
+	color: #ffdde1;
+	transform: scale(1.2);
+}
+
+.attribute {
+	margin: 7rem 2rem 0;
+	line-height: 30px;
+}
+
+.attribute svg {
+	width: 2vmax;
+	height: 2vmax;
+	vertical-align: sub;
+}
+
+.info {
+	font-size: 2vmax;
+}
+
+@media (max-width: 49rem) {
+	.container {
+		flex-direction: column;
+	}
+
+	h1 {
+		line-height: 50px;
+	}
+
+	.attribute {
+		margin: 3rem 2rem;
+	}
+}
